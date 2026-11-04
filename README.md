@@ -1,16 +1,35 @@
-# React + Vite
+# Album Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React web application that helps users discover and organize their music listening experience by searching albums and artists, previewing tracks, maintaining a personal listening collection with statuses, ratings, and notes, playing full albums through Deezer, and receiving AI-powered album recommendations based on their listening preferences.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live site:** https://album-tracker-rose.vercel.app
 
-## React Compiler
+## Features
+- Search albums and artists with the iTunes Search API
+- Album page with cover, year, genre, track list, and 30-second previews
+- Mini player that keeps playing while you browse
+- Personal collection with status, 1-5 star rating, notes, filters, and sorting
+- Optional full-album playback through the Deezer player
+- LLM-powered recommendations based on your saved albums and ratings
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
+React, Vite, Context API, iTunes API, Deezer, Google Gemini, Vercel
 
-## Expanding the ESLint configuration
+## Run locally
+1. `git clone "https://github.com/marcjustinebelen-cvsu/album-tracker.git"
+2. `cd album-tracker`
+3. `npm install`
+4. Create `.env.local` with `GEMINI_API_KEY=your-key-here`
+5. `npm run dev`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Limitations
+- Previews are 30 seconds (the most the iTunes API provides)
+- The collection is saved only in your browser
+- Deezer requires a login (and a plan in your country) for full tracks
+
+## Privacy
+The recommendations feature sends your saved albums' titles, artists, ratings, and statuses to Google's Gemini API. Your notes are not sent.
+
+## Disclaimer
+This is a learning project and is not affiliated with Apple, Spotify, Deezer, or Google. Music data, artwork, and audio belong to their owners.
